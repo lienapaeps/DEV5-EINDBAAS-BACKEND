@@ -8,6 +8,7 @@ const donutSchema = new Schema({
     topping: { type: String, required: true },
     logo: { type: String, required: true },
     logoVorm: { type: String, required: true },
+    geproduceerd: { type: Boolean, required: true },
 });
 
 const Donut = mongoose.model('Donut', donutSchema);
