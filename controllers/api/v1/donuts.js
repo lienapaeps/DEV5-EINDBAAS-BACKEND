@@ -22,7 +22,7 @@ const getAll = (req, res) => {
 
 // get donut by id
 const getById = (req, res) => {
-    Todo.find({"_id": req.params.id}, (err, doc) => {
+    Donut.find({"_id": req.params.id}, (err, doc) => {
         if (err) {
             res.json({
                 "status": "error",
