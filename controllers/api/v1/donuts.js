@@ -99,11 +99,11 @@ const update = (req, res) => {
 
 // delete donut by id
 const remove = (req, res) => {
-    let user = req.user._id;
+    // let user = req.user._id;
     let donutId = req.params.id;
 
     Donut.findOneAndDelete({
-        user: user,
+        // user: user,
         _id: donutId
     }).then(doc => {
         res.json({
