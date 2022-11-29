@@ -71,11 +71,11 @@ const create = (req, res) => {
 
 // update donut by id
 const update = (req, res) => {
-    let user = req.user._id;
+    // let user = req.user._id;
     let donutId = req.params.id;
     // console.log(donutId);
     Donut.findOneAndUpdate({
-        user: user,
+        // user: user,
         _id: donutId
     }, {
         geproduceerd: true
