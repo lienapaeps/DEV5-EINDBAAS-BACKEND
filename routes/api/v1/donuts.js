@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const donutsController = require('../controllers/donuts');
+const donutsController = require('../../../controllers/donuts');
 
 // get all donuts
 router.get('/', donutsController.getAll);
