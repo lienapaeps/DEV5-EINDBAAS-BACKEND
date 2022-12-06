@@ -28,9 +28,24 @@ const jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+        // als er geen user gevonden is
+        if (!result.user) {
+            return res.json({
+                "status": "error",
+                "message": "Invalid username or password"
+            })
+        }
+
+        let token = jwt.sign({
+            uid: result.user._id,
+        }, "secret");
+
         res.json({
             "status": "success",
-            "message": "User logged in"
+            "message": "User logged in",
+            "data": {
+                "token": token
+            }
         })
     }).catch(error => {
         res.json({
