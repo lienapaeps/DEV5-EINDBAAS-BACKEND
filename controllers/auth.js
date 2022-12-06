@@ -1,22 +1,22 @@
 const User = require('../models/user');
 
-const signup = async (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+// const signup = async (req, res) => {
+//     let username = req.body.username;
+//     let password = req.body.password;
 
-    const user = new User({username: username});
-    await user.setPassword(password);
-    await user.save().then(result => {
-        res.json({
-            "status": "success",
-            "message": "User created"
-        })
-    }).catch(error => {
-        res.json({
-            "status": "error"
-        })
-    });
-}
+//     const user = new User({username: username});
+//     await user.setPassword(password);
+//     await user.save().then(result => {
+//         res.json({
+//             "status": "success",
+//             "message": "User created"
+//         })
+//     }).catch(error => {
+//         res.json({
+//             "status": "error"
+//         })
+//     });
+// }
 
 const login = async (req, res) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
@@ -32,5 +32,5 @@ const login = async (req, res) => {
     });
 }
 
-module.exports.signup = signup;
+// module.exports.signup = signup;
 module.exports.login = login;

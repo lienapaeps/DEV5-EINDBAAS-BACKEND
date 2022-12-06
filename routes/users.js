@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-router.post("/signup", authController.signup);
+// router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 
 module.exports = router;
