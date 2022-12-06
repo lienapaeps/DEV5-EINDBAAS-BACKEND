@@ -1,4 +1,4 @@
-const Donut = require('../../../models/donut');
+const Donut = require('../../../models/Donut');
 
 // get all donuts
 const getAll = (req, res) => {
@@ -43,12 +43,14 @@ const getById = (req, res) => {
 // create donut
 const create = (req, res) => {
     let donut = new Donut();
-    donut.naam = req.body.naam;
+    donut.naamDonut = req.body.naamDonut;
     donut.glazuur = req.body.glazuur;
     donut.topping = req.body.topping;
     donut.logo = req.body.logo;
     donut.logoVorm = req.body.logoVorm;
-    donut.geproduceerd = false;
+    donut.status = "opgeslagen";
+    donut.email = req.body.email;
+    donut.naamBedrijf = req.body.naamBedrijf;
     // donut.user = req.user._id;
 
     donut.save((err, doc) => {
@@ -78,7 +80,7 @@ const update = (req, res) => {
         // user: user,
         _id: donutId
     }, {
-        geproduceerd: true
+        status: req.body.status
         
     }, {
         new: true
