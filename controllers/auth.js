@@ -8,7 +8,8 @@ const signup = async (req, res) => {
     await user.setPassword(password);
     await user.save().then(result => {
         res.json({
-            "status": "success"
+            "status": "success",
+            "message": "User created"
         })
     }).catch(error => {
         res.json({
@@ -17,4 +18,19 @@ const signup = async (req, res) => {
     });
 }
 
+const login = async (req, res) => {
+    const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+        res.json({
+            "status": "success",
+            "message": "User logged in"
+        })
+    }).catch(error => {
+        res.json({
+            "status": "error",
+            "message": "Invalid username or password"
+        })
+    });
+}
+
 module.exports.signup = signup;
+module.exports.login = login;
