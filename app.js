@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const passport = require('./passport/passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/v1/donuts', donutsRouter);
+app.use('/api/v1/donuts', passport.authenticate('jwt', {session: false}), donutsRouter); // enkel donuttello mag de donuts bekijken
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
