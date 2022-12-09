@@ -1,0 +1,8 @@
+{
+    "Database": {
+        "connectionString": "mongodb://localhost:27017/donuttello"
+    },
+    "jwt": {
+        "secret": "secret"
+    }
+}

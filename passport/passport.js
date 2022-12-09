@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('../models/user');
+const config = require('config');
 
 // hoe een gebruiker zich moet registreren en inloggen
 // beveiligen van routes
@@ -11,7 +12,7 @@ let ExtractJwt = require('passport-jwt').ExtractJwt;
 
 let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = 'secret';
+opts.secretOrKey = config.get("jwt.secret");
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({_id: jwt_payload.uid}, function(err, user) {
         if (err) {

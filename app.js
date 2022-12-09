@@ -6,13 +6,14 @@ const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('./passport/passport');
+const config = require('config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const donutsRouter = require('./routes/api/v1/donuts');
 
 // mongoose connection
-mongoose.connect('mongodb://localhost:27017/donuttello');
+mongoose.connect(config.get("Database.connectionString"));
 
 const app = express();
 
