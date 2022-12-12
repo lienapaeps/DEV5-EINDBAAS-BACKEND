@@ -1,6 +1,6 @@
 {
     "Database": {
-        "connectionString": "mongodb://localhost:27017/donuttello"
+        "connectionString": "mongodb+srv://donuttello:12345@cluster0.3u2ylpa.mongodb.net/?retryWrites=true&w=majority"
     },
     "jwt": {
         "secret": "secret"

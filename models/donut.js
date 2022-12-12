@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const donutSchema = new Schema({
     email: { type: String, required: true },
     nameCompany: { type: String, required: true },
