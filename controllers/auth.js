@@ -56,5 +56,38 @@ const login = async (req, res) => {
     });
 }
 
+// changePassword with passport-local-mongoose
+// const changePassword = async (req, res) => {
+
+//     // get the user from the database
+//     const user = await User.findOne({_id: req.user._id});
+
+//     // check if the old password is correct
+//     const result = await user.authenticate()(req.body.oldPassword);
+
+//     // if the old password is correct, change the password
+//     if (result) {
+//         user.setPassword(req.body.newPassword, async (err, user) => {
+//             await user.save().then(result => {
+//                 res.json({
+//                     "status": "success",
+//                     "message": "Password changed"
+//                 })
+//             }).catch(error => {
+//                 res.json({
+//                     "status": "error",
+//                     "message": "Something went wrong"
+//                 })
+//             });
+//         });
+//     } else {
+//         res.json({
+//             "status": "error",
+//             "message": "Old password is incorrect"
+//         })
+//     }
+// }
+
 // module.exports.signup = signup;
 module.exports.login = login;
+// module.exports.changePassword = changePassword;
