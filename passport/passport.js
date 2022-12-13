@@ -1,5 +1,5 @@
 const passport = require('passport');
-const User = require('../models/User');
+const User = require('../models/user');
 const config = require('config');
 
 // hoe een gebruiker zich moet registreren en inloggen
