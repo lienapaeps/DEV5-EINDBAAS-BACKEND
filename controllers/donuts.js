@@ -3,12 +3,14 @@ const Donut = require('../models/donut');
 // get all donuts
 const getAll = (req, res) => {
     Donut.find({}, (err, docs) => {
+        // something went wrong
         if (err) {
             res.json({
                 "status": "error",
                 "message": "Error getting donuts"
             })
         }
+        // found donuts
         if (!err) {
             res.json({
                 "status": "success",
@@ -23,12 +25,14 @@ const getAll = (req, res) => {
 // get donut by id
 const getById = (req, res) => {
     Donut.find({"_id": req.params.id}, (err, doc) => {
+        // something went wrong
         if (err) {
             res.json({
                 "status": "error",
                 "message": "Error getting donut"
             })
         }
+        // found donut by id 
         if (!err) {
             res.json({
                 "status": "success",
@@ -43,24 +47,29 @@ const getById = (req, res) => {
 // create donut
 const create = (req, res) => {
     let donut = new Donut();
+
+    // grab data from the request body
     donut.email = req.body.email;
     donut.nameCompany = req.body.nameCompany;
     donut.nameDonut = req.body.nameDonut;
     donut.icing = req.body.icing;
     donut.topping = req.body.topping;
-    // donut.logo = req.body.logo;
-    // donut.logoVorm = req.body.logoVorm;
+    donut.logo = req.body.logo;
+    donut.logoVorm = req.body.logoVorm;
     donut.status = "opgeslagen";
     // donut.imageUrl = req.body.imageUrl;
     // donut.user = req.user._id;
 
+    // save donut to database
     donut.save((err, doc) => {
+        // something went wrong
         if (err) {
             res.json({
                 "status": "error",
                 "message": "Could not create donut"
             })
         }
+        // saving donut to database
         if (!err) {
             res.json({
                 "status": "success",

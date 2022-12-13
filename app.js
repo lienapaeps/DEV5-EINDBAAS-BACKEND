@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const passport = require('./passport/passport');
 const config = require('config');
 
+// routers
 const usersRouter = require('./routes/users');
 const donutsRouter = require('./routes/donuts');
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// api routes
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/donuts', donutsRouter);
 

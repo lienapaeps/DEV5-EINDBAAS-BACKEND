@@ -2,6 +2,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
+// user sign up (in comments because we only want Donuttello as admin)
 // const signup = async (req, res) => {
 //     let username = req.body.username;
 //     let password = req.body.password;
@@ -27,9 +28,10 @@ const config = require('config');
 //     });
 // }
 
+// user login
 const login = async (req, res) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
-        // als er geen user gevonden is
+        // no user found
         if (!result.user) {
             return res.json({
                 "status": "error",
@@ -37,6 +39,7 @@ const login = async (req, res) => {
             })
         }
 
+        // user found
         let token = jwt.sign({
             uid: result.user._id,
         }, config.get("jwt.secret"));
@@ -59,7 +62,7 @@ const login = async (req, res) => {
 // changePassword
 const changePassword = async (req, res) => {
     const user = await User.authenticate()(req.body.username, req.body.oldPassword).then(result => {
-        // als er geen user gevonden is
+        // no user found
         if (!result.user) {
             return res.json({
                 "status": "error",
@@ -67,7 +70,7 @@ const changePassword = async (req, res) => {
             })
         }
         
-        // als er wel een user gevonden is
+        // user found
         result.user.setPassword(req.body.newPassword, async (err, user) => {
             if (err) {
                 return res.json({
