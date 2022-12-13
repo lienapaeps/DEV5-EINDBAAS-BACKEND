@@ -10,7 +10,7 @@ const donutSchema = new Schema({
     logo: { type: String, required: true },
     logoShape: { type: String, required: true },
     status: { type: String, required: true },
-    // imageURL: { type: String, required: true },
+    imageURL: { type: String, required: true },
 });
 
 const Donut = mongoose.model('Donut', donutSchema);

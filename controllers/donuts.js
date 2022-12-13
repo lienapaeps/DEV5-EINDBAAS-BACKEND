@@ -57,7 +57,7 @@ const create = (req, res) => {
     donut.logo = req.body.logo;
     donut.logoVorm = req.body.logoVorm;
     donut.status = "opgeslagen";
-    // donut.imageUrl = req.body.imageUrl;
+    donut.imageUrl = req.body.imageUrl;
     // donut.user = req.user._id;
 
     // save donut to database

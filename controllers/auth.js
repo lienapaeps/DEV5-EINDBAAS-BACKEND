@@ -1,6 +1,6 @@
-const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const User = require('../models/user');
 
 // user sign up (in comments because we only want Donuttello as admin)
 // const signup = async (req, res) => {

@@ -5,10 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const passport = require('./passport/passport');
+// const passport = require('./passport/passport');
 const config = require('config');
 
 // routers
+const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const donutsRouter = require('./routes/donuts');
 
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // api routes
+app.use('/', indexRouter)
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/donuts', donutsRouter);
 
