@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const donutsController = require('../../../controllers/api/v1/donuts');
-const passport = require('../../../passport/passport');
+const donutsController = require('../controllers/donuts');
+const passport = require('../passport/passport');
 
 // get all donuts
 router.get('/', passport.authenticate('jwt', {session: false}) , donutsController.getAll);

@@ -8,9 +8,8 @@ const mongoose = require('mongoose');
 const passport = require('./passport/passport');
 const config = require('config');
 
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const donutsRouter = require('./routes/api/v1/donuts');
+const donutsRouter = require('./routes/donuts');
 
 // mongoose connection
 mongoose.connect(config.get("Database.connectionString"));
@@ -28,8 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/donuts', donutsRouter);
 
 // catch 404 and forward to error handler
