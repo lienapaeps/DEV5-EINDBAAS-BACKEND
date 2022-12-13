@@ -1,6 +1,5 @@
 const passport = require('passport');
 const User = require('../models/user');
-const Donut = require('../models/donut');
 const config = require('config');
 
 // hoe een gebruiker zich moet registreren en inloggen
