@@ -52,13 +52,18 @@ const create = (req, res) => {
     donut.email = req.body.email;
     donut.nameCompany = req.body.nameCompany;
     donut.nameDonut = req.body.nameDonut;
+    donut.street = req.body.street;
+    donut.streetNumber = req.body.streetNumber;
+    donut.postalCode = req.body.postalCode;
+    donut.city = req.body.city;
     donut.icing = req.body.icing;
     donut.topping = req.body.topping;
     donut.logo = req.body.logo;
     donut.logoShape = req.body.logoShape;
     donut.status = "opgeslagen";
     donut.imageUrl = req.body.imageUrl;
-    // donut.user = req.user._id;
+    donut.donutAmount = req.body.donutAmount;
+    donut.dateCreated = req.body.dateCreated;
 
     // save donut to database
     donut.save((err, doc) => {
