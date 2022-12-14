@@ -66,7 +66,8 @@ const create = (req, res) => {
         if (err) {
             res.json({
                 "status": "error",
-                "message": "Could not create donut"
+                "message": "Could not create donut",
+                "error": err
             })
         }
         // saving donut to database
