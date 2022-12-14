@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
+const passport = require('../passport/passport');
 
 // create user
 // router.post("/signup", authController.signup);
@@ -9,6 +10,6 @@ const authController = require('../controllers/auth');
 router.post("/login", authController.login);
 
 // change password user
-router.post("/changePassword", authController.changePassword);
+router.post("/changePassword", passport.authenticate('jwt', {session: false}), authController.changePassword);
 
 module.exports = router;
