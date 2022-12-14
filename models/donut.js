@@ -17,7 +17,7 @@ const donutSchema = new Schema({
     status: { type: String, required: true },
     imageUrl: { type: String, required: true },
     donutAmount : { type: Number, required: true },
-    dateCreated: { type: Date, default: Date.now }
+    dateCreated: { type: Date, default: Date }
 });
 
 const Donut = mongoose.model('Donut', donutSchema);
