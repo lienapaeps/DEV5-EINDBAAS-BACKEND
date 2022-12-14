@@ -9,6 +9,7 @@ const donutSchema = new Schema({
     streetNumber: { type: String, required: true },
     postalCode: { type: String, required: true },
     city: { type: String, required: true },
+    remarks: { type: String, required: true },
     icing: { type: String, required: true },
     topping: { type: String, required: true },
     logo: { type: String, required: true },

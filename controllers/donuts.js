@@ -55,6 +55,7 @@ const create = (req, res) => {
     donut.street = req.body.street;
     donut.streetNumber = req.body.streetNumber;
     donut.postalCode = req.body.postalCode;
+    donut.remarks = req.body.remarks;
     donut.city = req.body.city;
     donut.icing = req.body.icing;
     donut.topping = req.body.topping;
