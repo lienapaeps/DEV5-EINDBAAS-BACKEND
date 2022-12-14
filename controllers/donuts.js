@@ -55,7 +55,7 @@ const create = (req, res) => {
     donut.icing = req.body.icing;
     donut.topping = req.body.topping;
     donut.logo = req.body.logo;
-    donut.logoShape = req.body.logoVorm;
+    donut.logoShape = req.body.logoShape;
     donut.status = "opgeslagen";
     donut.imageUrl = req.body.imageUrl;
     // donut.user = req.user._id;
