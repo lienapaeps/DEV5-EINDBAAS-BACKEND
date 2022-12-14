@@ -17,8 +17,10 @@ const donutSchema = new Schema({
     status: { type: String, required: true },
     imageUrl: { type: String, required: true },
     donutAmount : { type: Number, required: true },
-    dateCreated: { type: Date, default: Date }
-});
+    // dateCreated: { type: Date, default: Date.now }
+}, { timestamps: true });
+
+// timestamps: true adds createdAt and updatedAt fields to the schema
 
 const Donut = mongoose.model('Donut', donutSchema);
 
