@@ -10,6 +10,6 @@ const passport = require('../passport/passport');
 router.post("/login", authController.login);
 
 // change password user
-router.post("/changePassword", passport.authenticate('jwt', {session: false}), authController.changePassword);
+router.post("/changePassword", authController.changePassword);
 
 module.exports = router;
