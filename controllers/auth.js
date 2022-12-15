@@ -42,7 +42,7 @@ const login = async (req, res) => {
         // user found
         let token = jwt.sign({
             uid: result.user._id,
-        }, config.get("jwt.secret"));
+        }, config.get("jwt.secret"), {expiresIn: '1h'});
 
         res.json({
             "status": "success",
