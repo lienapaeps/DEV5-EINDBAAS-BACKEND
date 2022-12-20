@@ -3,30 +3,30 @@ const config = require('config');
 const User = require('../models/user');
 
 // user sign up (in comments because we only want Donuttello as admin)
-const signup = async (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+// const signup = async (req, res) => {
+//     let username = req.body.username;
+//     let password = req.body.password;
 
-    const user = new User({username: username});
-    await user.setPassword(password);
-    await user.save().then(result => {
-        let token = jwt.sign({
-            uid: result._id,
-        }, config.get("jwt.secret"));
+//     const user = new User({username: username});
+//     await user.setPassword(password);
+//     await user.save().then(result => {
+//         let token = jwt.sign({
+//             uid: result._id,
+//         }, config.get("jwt.secret"));
 
-        res.json({
-            "status": "success",
-            "message": "User created",
-            "data": {
-                "token": token
-            }
-        })
-    }).catch(error => {
-        res.json({
-            "status": "error"
-        })
-    });
-}
+//         res.json({
+//             "status": "success",
+//             "message": "User created",
+//             "data": {
+//                 "token": token
+//             }
+//         })
+//     }).catch(error => {
+//         res.json({
+//             "status": "error"
+//         })
+//     });
+// }
 
 // user login
 const login = async (req, res) => {
@@ -98,6 +98,6 @@ const changePassword = async (req, res) => {
     });
 }
 
-module.exports.signup = signup;
+// module.exports.signup = signup;
 module.exports.login = login;
 module.exports.changePassword = changePassword;
