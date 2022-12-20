@@ -4,7 +4,7 @@ const authController = require('../controllers/auth');
 const passport = require('../passport/passport');
 
 // create user
-// router.post("/signup", authController.signup);
+router.post("/signup", authController.signup);
 
 // log in user
 router.post("/login", authController.login);
