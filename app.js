@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 // const passport = require('./passport/passport');
 const config = require('config');
 const getRawBody = require('raw-body')
+const bodyParser = require('body-parser')
 
 // routers
 const indexRouter = require('./routes/index');
@@ -27,17 +28,7 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use(function (req, res, next) {
-  getRawBody(req, {
-    length: req.headers['content-length'],
-    limit: '1mb',
-    encoding: contentType.parse(req).parameters.charset
-  }, function (err, string) {
-    if (err) return next(err)
-    req.text = string
-    next()
-  })
-})
+app.use(express.limit('4M'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
