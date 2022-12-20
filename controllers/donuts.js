@@ -61,7 +61,7 @@ const create = (req, res) => {
     donut.topping = req.body.topping;
     donut.logo = req.body.logo;
     donut.logoShape = req.body.logoShape;
-    donut.status = "opgeslagen";
+    donut.status = "Opgeslagen";
     donut.imageUrl = req.body.imageUrl;
     donut.donutAmount = req.body.donutAmount;
     donut.dateCreated = req.body.dateCreated;
